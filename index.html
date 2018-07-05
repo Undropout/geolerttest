@@ -18,11 +18,14 @@
 <p id="demo"></p>
 
 <script>
+  //  document.addEventListener("DOMContentLoaded", function() {
     
+    window.setInterval(getLocation, 3000);
+ //   });
   
 
 var x = document.getElementById("demo");
-
+var d = new Date();
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
@@ -33,12 +36,10 @@ function getLocation() {
 
 function showPosition(position) {
     x.innerHTML = "Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude;
+    "<br>Longitude: " + position.coords.longitude + "<br>This has been updated at " + d;
+
 }
-document.addEventListener("DOMContentLoaded", function() {
-    
-    window.setInterval(getLocation(), milliseconds);
-    });
+
     
 </script>
 
