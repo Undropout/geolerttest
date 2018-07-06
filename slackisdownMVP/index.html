@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" type="text/css" href="assets/reset.css" />
+    <link rel="stylesheet" type="text/css" href="assets/style.css" />
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <title>GeoLert!</title>
+</head>
+
+<body>
+    <header>
+        <h1>GeoLert!</h1>
+    </header>
+
+    <div class="container">
+        <section class="inputs">
+            <div class="sub-head">
+                <h2>Submit New:</h2>
+            </div>
+            <form>
+
+
+                <!-- <div class="form-group">
+                        <label for="newUserType">User Type</label>
+                        <select class="form-control" id="newUserType" placeholder="Type">
+                            <option value="Scout">Scout</option>
+                            <option value="HQ">HQ</option>
+                        </select>
+                    </div> -->
+                <div class="form-group">
+                    <label for="newUserName">User Name</label>
+                    <input type="text" class="form-control" id="newUserName" placeholder="Name"></input>
+                </div>
+
+                <!-- <div class="form-group">
+                    <label for="newUserEmail">User email</label>
+                    <input type="text" class="form-control" id="newUserEmail" placeholder="Email"></input>
+                </div> -->
+                <div class="form-group">
+                    <label id="recipientLabel" for="newRecipient">Recipient email</label>
+                    <input type="text" class="form-control" id="newRecipient" placeholder="Recipient"></input>
+                </div>
+                <div class="form-group">
+                    <label for="newMessage">Message</label>
+                    <input type="text" class="form-control" id="newMessage" placeholder="Message"></input>
+                </div>
+                <div class="form-group">
+                        <p>Select your trigger location by finding it on the map below, adding it, and then click "Get Coordinates."</p>
+                    <label for="newTrig">Trigger Location</label>
+                    <input type="text" class="form-control" id="latlngInput" placeholder="Coordinates"></input>
+                </div>
+                <button id="getAddress" type="submit" class="btn">Get Coordinates</button>
+                <br/>
+                <button id="submitNewUser" type="submit" class="btn submitbtn">Submit!</button>
+
+            </form>
+
+        </section>
+        <section class="map-section">
+            <div id="map" class="map-box"></div>
+            <!-- Form that will appear when you are trying to save a home location after clicking on said area. -->
+            <!-- This did not work in the manner that I wanted to, so I decided to comment it out. -->
+
+
+            <!-- Information regarding the map (name and address) -->
+            <div id="infowindow-content">
+                <img src="" width="16" height="16" id="place-icon">
+                <span id="place-name" class="title"></span>
+                <br>
+                <span id="place-address"></span>
+                <div id='form'>
+                    <div id="tableSave">
+                        
+                        <p>Is this the address you want to add?</p>
+                                        <button id="saveButton" type="button">Yes, add it</button>
+                                        <br/>
+                                        <p>After you've added your address, hit 'Get Coordinates' above.</p>
+                    </div>
+                </div>
+                <div id="message">Location Saved</div>
+
+
+
+                <div class="pac-card" id="pac-card">
+                    <div>
+
+                        <label id="title">Trigger Location:</label>
+                        <div id="type-selector" class="pac-controls">
+                            <!-- Input to search for anything be it an adress or a company name or something similar-->
+                            <input type="radio" name="type" id="changetype-all" checked="checked">
+                            <label for="changetype-all">All</label>
+
+                            <input type="radio" name="type" id="changetype-establishment">
+                            <!-- Search for any establishments [Looking up a company name to find the nearest store] -->
+                            <label for="changetype-establishment">Establishments</label>
+
+                            <input type="radio" name="type" id="changetype-address">
+                            <!-- Search for an address -->
+                            <label for="changetype-address">Addresses</label>
+
+                            <!-- <div id="floating-panel">
+                                <input id="latlng" type="text" value="">
+                            </div> -->
+                        </div>
+                    </div>
+                    <div id="pac-container">
+                        <!-- Text box where you'd input a location -->
+                        <input id="pac-input" type="text" placeholder="Enter a location">
+                    </div>
+                </div>
+                
+               
+
+        </section>
+
+
+        <a href="viewDatabase.html">View Prototype Database Info</a>
+
+        <!-- <table id="data-table" class="table table-bordered table-striped">
+            <caption class="text-center">
+                <h3>User Name Database (for Prototype)</h3>
+            </caption>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>User Email</th>
+                    <th>Recipient Email</th>
+                    <th>Trigger Location</th>
+                    <th>Message</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table> -->
+
+
+        </div>
+
+        <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+        <script src="assets/config.js"></script>
+       
+        <script src="assets/main.js"></script>
+        <script src="assets/map.js"></script>
+        <!-- Google Maps API with Key -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBx8019bevKZrg6BjcXRO9UiT_L6ansx2c&libraries=places&callback=initMap"
+            async defer></script>
+</body>
+
+</html>
